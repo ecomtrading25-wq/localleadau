@@ -20,12 +20,12 @@
 - [ ] Add user profile page
 
 ### Client Onboarding Wizard
-- [ ] Step 1: About your business
-- [ ] Step 2: Service areas
-- [ ] Step 3: Job types and average job value
-- [ ] Step 4: Lead handling preferences
-- [ ] Step 5: Review and confirm
-- [ ] Redirect logic (onboarded → dashboard, new → wizard)
+- [x] Step 1: About your business
+- [x] Step 2: Service areas
+- [x] Step 3: Job types and average job value
+- [x] Step 4: Lead handling preferences
+- [x] Step 5: Review and confirm
+- [x] Redirect logic (onboarded → dashboard, new → wizard)
 
 ### Prospecting Engine
 - [ ] Create ScrapeJob model and status tracking
