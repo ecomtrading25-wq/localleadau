@@ -15,6 +15,13 @@
       "when": 1765365821142,
       "tag": "0001_ancient_overlord",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1765368170660,
+      "tag": "0002_nervous_bloodstorm",
+      "breakpoints": true
     }
   ]
 }

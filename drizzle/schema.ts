@@ -368,6 +368,7 @@ export const billingPlans = mysqlTable("billing_plans", {
   id: int("id").autoincrement().primaryKey(),
   name: varchar("name", { length: 100 }).notNull(),
   slug: varchar("slug", { length: 100 }).notNull().unique(),
+  description: text("description"),
   
   priceMonthly: int("priceMonthly").notNull(), // in cents
   priceAnnual: int("priceAnnual").notNull(), // in cents

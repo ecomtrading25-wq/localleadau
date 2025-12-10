@@ -3,7 +3,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Users, Target, Mail, DollarSign, TrendingUp, Briefcase } from "lucide-react";
+import { Users, Target, Mail, DollarSign, TrendingUp, Briefcase, CreditCard } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Dashboard() {
@@ -212,6 +212,20 @@ export default function Dashboard() {
                 </div>
                 <CardDescription>
                   Set up automated email/SMS sequences
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/billing">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <div className="flex items-center space-x-2">
+                  <CreditCard className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-lg">Billing & Plans</CardTitle>
+                </div>
+                <CardDescription>
+                  Manage your subscription and billing
                 </CardDescription>
               </CardHeader>
             </Card>
