@@ -20,6 +20,7 @@ import { campaignsRouter } from "./routers/campaigns";
 import { billingRouter } from "./routers/billing";
 import { usageRouter } from "./routers/usage";
 import { pseoRouter } from "./routers/pseo";
+import { helpRouter } from "./routers/help";
 
 export const appRouter = router({
   system: systemRouter,
@@ -212,6 +213,9 @@ export const appRouter = router({
 
   // Programmatic SEO
   pseo: pseoRouter,
+
+  // Help center
+  help: helpRouter,
 });
 
 export type AppRouter = typeof appRouter;

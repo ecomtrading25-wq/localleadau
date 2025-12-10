@@ -163,3 +163,22 @@
 - [x] Add changefreq and priority
 - [ ] Update sitemap when pages are generated (currently manual)
 - [ ] Submit to Google Search Console
+
+## Phase 10: Help Center & Support
+
+### Help Center
+- [x] Create help article router (CRUD operations)
+- [x] Build public help center page with category browsing
+- [x] Implement article search functionality
+- [x] Create admin article editor with markdown support
+- [x] Add article categories (Getting Started, Features, Billing, Troubleshooting, API, Integrations)
+- [x] Implement article publishing workflow (draft/published)
+- [ ] Add article view tracking
+- [ ] Create "Was this helpful?" feedback system
+
+### Feedback System
+- [ ] Create feedback collection form
+- [ ] Build feedback management dashboard
+- [ ] Add feedback categories (bug, feature request, general)
+- [ ] Implement feedback status tracking
+- [ ] Add email notifications for new feedback

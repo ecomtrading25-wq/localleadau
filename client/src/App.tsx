@@ -3,6 +3,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import PseoAdmin from "@/pages/PseoAdmin";
 import PseoPage from "@/pages/PseoPage";
+import Help from "@/pages/Help";
+import HelpArticle from "@/pages/HelpArticle";
+import HelpAdmin from "@/pages/HelpAdmin";
 import { Route, Switch, Redirect } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -101,6 +104,11 @@ function Router() {
       </Route>
       <Route path="/pseo-admin">
         <ProtectedRoute component={PseoAdmin} />
+      </Route>
+      <Route path="/help" component={Help} />
+      <Route path="/help/:slug" component={HelpArticle} />
+      <Route path="/help-admin">
+        <ProtectedRoute component={HelpAdmin} />
       </Route>
       <Route path="/:slug" component={PseoPage} />
       <Route path="/404" component={NotFound} />

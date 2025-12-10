@@ -560,25 +560,29 @@ export async function createPseoPage(page: InsertPseoPage) {
 // HELP & FEEDBACK
 // ============================================================================
 
-export async function getHelpArticles(category?: string) {
+export async function getHelpArticles(filters?: { category?: string; published?: boolean }) {
   const db = await getDb();
   if (!db) return [];
 
-  if (category) {
+  const conditions = [];
+  if (filters?.published !== undefined) {
+    conditions.push(eq(helpArticles.published, filters.published));
+  }
+  if (filters?.category) {
+    conditions.push(eq(helpArticles.category, filters.category));
+  }
+
+  if (conditions.length > 0) {
     return await db
       .select()
       .from(helpArticles)
-      .where(and(
-        eq(helpArticles.published, true),
-        eq(helpArticles.category, category)
-      ))
+      .where(and(...conditions))
       .orderBy(helpArticles.title);
   }
 
   return await db
     .select()
     .from(helpArticles)
-    .where(eq(helpArticles.published, true))
     .orderBy(helpArticles.category, helpArticles.title);
 }
 
@@ -588,6 +592,86 @@ export async function getHelpArticleBySlug(slug: string) {
 
   const result = await db.select().from(helpArticles).where(eq(helpArticles.slug, slug)).limit(1);
   return result.length > 0 ? result[0] : undefined;
+}
+
+export async function getHelpArticleById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+
+  const result = await db.select().from(helpArticles).where(eq(helpArticles.id, id)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function createHelpArticle(data: {
+  title: string;
+  slug: string;
+  body: string;
+  category: string;
+  published: boolean;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const [result] = await db.insert(helpArticles).values({
+    title: data.title,
+    slug: data.slug,
+    body: data.body,
+    category: data.category,
+    published: data.published,
+  });
+
+  return Number((result as any).insertId);
+}
+
+export async function updateHelpArticle(
+  id: number,
+  data: {
+    title?: string;
+    slug?: string;
+    body?: string;
+    category?: string;
+    published?: boolean;
+  }
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const updateData: Record<string, unknown> = {};
+  if (data.title !== undefined) updateData.title = data.title;
+  if (data.slug !== undefined) updateData.slug = data.slug;
+  if (data.body !== undefined) updateData.body = data.body;
+  if (data.category !== undefined) updateData.category = data.category;
+  if (data.published !== undefined) updateData.published = data.published;
+
+  if (Object.keys(updateData).length > 0) {
+    await db.update(helpArticles).set(updateData).where(eq(helpArticles.id, id));
+  }
+}
+
+export async function deleteHelpArticle(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(helpArticles).where(eq(helpArticles.id, id));
+}
+
+export async function searchHelpArticles(query: string) {
+  const db = await getDb();
+  if (!db) return [];
+
+  // Simple search implementation - can be enhanced with full-text search
+  const searchTerm = `%${query}%`;
+  const results = await db
+    .select()
+    .from(helpArticles)
+    .where(
+      and(
+        eq(helpArticles.published, true),
+        sql`${helpArticles.title} LIKE ${searchTerm} OR ${helpArticles.body} LIKE ${searchTerm}`
+      )
+    );
+
+  return results;
 }
 
 export async function createFeedback(feedbackData: InsertFeedback) {
