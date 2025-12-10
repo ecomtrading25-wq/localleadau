@@ -346,9 +346,12 @@ export const campaignRecipients = mysqlTable("campaign_recipients", {
   prospectId: int("prospectId"),
   leadId: int("leadId"),
   
-  status: mysqlEnum("status", ["pending", "active", "completed", "unsubscribed"]).default("pending").notNull(),
-  
+  status: mysqlEnum("status", ["pending", "active", "completed", "unsubscribed", "failed"]).default("pending").notNull(),
   currentStep: int("currentStep").default(0).notNull(),
+  
+  // Tracking
+  lastSentAt: timestamp("lastSentAt"),
+  completedAt: timestamp("completedAt"),
   
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),

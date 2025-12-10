@@ -22,6 +22,13 @@
       "when": 1765368170660,
       "tag": "0002_nervous_bloodstorm",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1765407537860,
+      "tag": "0003_aspiring_switch",
+      "breakpoints": true
     }
   ]
 }

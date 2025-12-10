@@ -182,3 +182,71 @@
 - [ ] Add feedback categories (bug, feature request, general)
 - [ ] Implement feedback status tracking
 - [ ] Add email notifications for new feedback
+
+## Phase 11: Campaign Automation Engine
+
+### Template Variables
+- [x] Design template variable system ({{firstName}}, {{businessName}}, {{city}}, etc.)
+- [x] Implement variable replacement in email/SMS content
+- [x] Add variable preview function
+- [x] Handle missing variables gracefully
+- [ ] Add variable picker UI in campaign editor
+- [ ] Create variable documentation for users
+
+### Scheduled Sending
+- [x] Design cron job architecture for campaign execution
+- [x] Implement campaign step scheduler (runs every minute)
+- [x] Add delay logic between steps (days)
+- [x] Create sending queue system
+- [x] Implement retry logic for failed sends
+- [ ] Add rate limiting to prevent spam
+- [ ] Add manual campaign execution trigger
+
+### Delivery Tracking
+- [ ] Add delivery status tracking (sent/delivered/bounced/failed)
+- [ ] Implement open tracking (email only)
+- [ ] Add click tracking for links
+- [ ] Track reply detection
+- [ ] Create delivery analytics dashboard
+- [ ] Add recipient-level status view
+
+### Email Integration
+- [x] Choose email provider (SendGrid)
+- [x] Implement email sending API integration
+- [x] Add email template rendering with HTML
+- [x] Add unsubscribe link management
+- [ ] Configure SPF/DKIM/DMARC for deliverability
+- [ ] Handle bounce and complaint webhooks
+- [ ] Add email preview before sending
+
+### SMS Integration
+- [ ] Choose SMS provider (Twilio, MessageBird, or AWS SNS)
+- [ ] Implement SMS sending API integration
+- [ ] Add SMS template rendering
+- [ ] Handle delivery receipts
+- [ ] Add opt-out management
+- [ ] Implement SMS character counting
+
+### Automated Follow-ups
+- [ ] Design trigger system (lead status change, time-based, action-based)
+- [ ] Implement trigger evaluation engine
+- [ ] Add conditional logic (if/then rules)
+- [ ] Create follow-up sequence templates
+- [ ] Add trigger management UI
+- [ ] Implement trigger testing/preview
+
+### Campaign Analytics
+- [ ] Build campaign performance dashboard
+- [ ] Add open rate, click rate, reply rate metrics
+- [ ] Create conversion tracking (lead → customer)
+- [ ] Implement A/B testing framework
+- [ ] Add campaign comparison view
+- [ ] Export campaign reports
+
+### Testing
+- [ ] Write tests for template variable replacement
+- [ ] Test scheduled sending logic
+- [ ] Test delivery tracking
+- [ ] Test email/SMS integration
+- [ ] Test automated triggers
+- [ ] End-to-end campaign flow test
