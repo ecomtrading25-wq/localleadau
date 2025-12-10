@@ -616,3 +616,16 @@ export async function getBillingPlanById(id: number) {
   const result = await db.select().from(billingPlans).where(eq(billingPlans.id, id)).limit(1);
   return result.length > 0 ? result[0] : undefined;
 }
+
+export async function getSubscriptionByStripeId(stripeSubscriptionId: string) {
+  const db = await getDb();
+  if (!db) return undefined;
+
+  const result = await db
+    .select()
+    .from(subscriptions)
+    .where(eq(subscriptions.stripeSubscriptionId, stripeSubscriptionId))
+    .limit(1);
+  
+  return result.length > 0 ? result[0] : undefined;
+}

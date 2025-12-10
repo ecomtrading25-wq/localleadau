@@ -91,3 +91,17 @@
 - [ ] Help Center & Support
 - [ ] SuperAdmin Backoffice
 - [ ] Public API & Webhooks
+
+## Phase 6: Stripe Webhooks & Automation
+
+### Stripe Webhooks
+- [x] Create webhook endpoint `/api/webhooks/stripe`
+- [x] Implement signature verification
+- [x] Handle `checkout.session.completed` event
+- [x] Handle `invoice.paid` event
+- [x] Handle `invoice.payment_failed` event
+- [x] Handle `customer.subscription.updated` event
+- [x] Handle `customer.subscription.deleted` event
+- [x] Add webhook event logging
+- [ ] Test webhook handlers with Stripe CLI
+- [ ] Configure webhook in Stripe dashboard
