@@ -145,3 +145,21 @@
 - [ ] Add call-to-action sections with lead capture forms
 - [ ] Include testimonials and trust signals
 - [ ] Add internal linking between related pages
+
+## Phase 9: Seed pSEO Data & Sitemap
+
+### Seed Data
+- [x] Create seed script for common Australian trades (30 niches)
+- [x] Create seed script for major Australian cities (37 locations)
+- [x] Add niche categories (tradies, home services, health, automotive, professional)
+- [x] Add major cities across all Australian states
+- [ ] Auto-generate pages after seeding
+- [ ] Add suburb-level locations for major cities
+
+### XML Sitemap
+- [x] Generate sitemap.xml for all published pages
+- [x] Add sitemap route (/sitemap.xml)
+- [x] Add lastmod timestamps
+- [x] Add changefreq and priority
+- [ ] Update sitemap when pages are generated (currently manual)
+- [ ] Submit to Google Search Console

@@ -8,6 +8,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { handleStripeWebhook } from "../webhooks/stripe";
+import { generateSitemap } from "../sitemap";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -34,6 +35,21 @@ async function startServer() {
   
   // Stripe webhook endpoint (must be before body parser to get raw body)
   app.post("/api/webhooks/stripe", express.raw({ type: "application/json" }), handleStripeWebhook);
+  
+  // Sitemap endpoint
+  app.get("/sitemap.xml", async (req, res) => {
+    try {
+      const protocol = req.protocol;
+      const host = req.get("host");
+      const baseUrl = `${protocol}://${host}`;
+      const sitemap = await generateSitemap(baseUrl);
+      res.header("Content-Type", "application/xml");
+      res.send(sitemap);
+    } catch (error) {
+      console.error("Error generating sitemap:", error);
+      res.status(500).send("Error generating sitemap");
+    }
+  });
   
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
