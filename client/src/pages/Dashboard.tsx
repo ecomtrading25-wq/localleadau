@@ -4,6 +4,7 @@ import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Users, Target, Mail, DollarSign, TrendingUp, Briefcase } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -174,17 +175,19 @@ export default function Dashboard() {
 
         {/* Quick Actions */}
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-            <CardHeader>
-              <div className="flex items-center space-x-2">
-                <Target className="h-5 w-5 text-primary" />
-                <CardTitle className="text-lg">Find Prospects</CardTitle>
-              </div>
-              <CardDescription>
-                Search Google Maps for new business leads in your area
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <Link href="/prospects">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <div className="flex items-center space-x-2">
+                  <Target className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-lg">Find Prospects</CardTitle>
+                </div>
+                <CardDescription>
+                  Search Google Maps for new business leads in your area
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
 
           <Card className="hover:shadow-lg transition-shadow cursor-pointer">
             <CardHeader>

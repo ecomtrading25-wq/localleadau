@@ -28,13 +28,13 @@
 - [x] Redirect logic (onboarded → dashboard, new → wizard)
 
 ### Prospecting Engine
-- [ ] Create ScrapeJob model and status tracking
+- [x] Create ScrapeJob model and status tracking
 - [ ] Build prospect map view (Google Maps integration)
-- [ ] Create prospect table with filters
+- [x] Create prospect table with filters
 - [ ] Implement prospect detail slide-over panel
-- [ ] Add prospect status management
-- [ ] Build "Convert to Lead" functionality
-- [ ] Create prospect list management UI
+- [x] Add prospect status management
+- [x] Build "Convert to Lead" functionality
+- [x] Create prospect list management UI
 
 ### Campaign Management
 - [ ] Create campaign template library

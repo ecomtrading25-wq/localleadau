@@ -14,6 +14,7 @@ import {
   getProspectsByOrganisation,
   getCampaignsByOrganisation,
 } from "./db";
+import { prospectingRouter } from "./routers/prospecting";
 
 export const appRouter = router({
   system: systemRouter,
@@ -188,6 +189,9 @@ export const appRouter = router({
         };
       }),
   }),
+
+  // Prospecting features
+  prospecting: prospectingRouter,
 });
 
 export type AppRouter = typeof appRouter;
