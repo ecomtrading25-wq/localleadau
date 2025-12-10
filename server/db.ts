@@ -629,3 +629,47 @@ export async function getSubscriptionByStripeId(stripeSubscriptionId: string) {
   
   return result.length > 0 ? result[0] : undefined;
 }
+
+export async function createPseoNiche(niche: InsertPseoNiche) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const [result] = await db.insert(pseoNiches).values(niche);
+  return Number((result as any).insertId);
+}
+
+export async function createPseoLocation(location: InsertPseoLocation) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const [result] = await db.insert(pseoLocations).values(location);
+  return Number((result as any).insertId);
+}
+
+export async function getPseoPages(limit: number = 100, offset: number = 0) {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db.select().from(pseoPages).limit(limit).offset(offset);
+}
+
+export async function getPseoPageBySlug(slug: string) {
+  // Convert slug to path format
+  const path = `/${slug}`;
+  return await getPseoPageByPath(path);
+}
+
+export async function updatePseoPageContent(id: number, content: string, title: string, metaDescription: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db
+    .update(pseoPages)
+    .set({
+      contentOverride: content,
+      title,
+      metaDescription,
+      updatedAt: new Date(),
+    })
+    .where(eq(pseoPages.id, id));
+}

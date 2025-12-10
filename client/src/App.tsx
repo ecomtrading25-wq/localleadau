@@ -1,6 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
+import PseoAdmin from "@/pages/PseoAdmin";
+import PseoPage from "@/pages/PseoPage";
 import { Route, Switch, Redirect } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -97,6 +99,10 @@ function Router() {
       <Route path="/billing">
         <ProtectedRoute component={Billing} />
       </Route>
+      <Route path="/pseo-admin">
+        <ProtectedRoute component={PseoAdmin} />
+      </Route>
+      <Route path="/:slug" component={PseoPage} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

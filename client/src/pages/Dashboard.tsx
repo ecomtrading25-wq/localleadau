@@ -3,7 +3,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Users, Target, Mail, DollarSign, TrendingUp, Briefcase, CreditCard } from "lucide-react";
+import { Users, Target, Mail, DollarSign, TrendingUp, Briefcase, CreditCard, FileText } from "lucide-react";
 import { Link } from "wouter";
 import { UsageWidget } from "@/components/UsageWidget";
 
@@ -227,6 +227,20 @@ export default function Dashboard() {
                 </div>
                 <CardDescription>
                   Manage your subscription and billing
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+
+          <Link href="/pseo-admin">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <div className="flex items-center space-x-2">
+                  <FileText className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-lg">SEO Pages</CardTitle>
+                </div>
+                <CardDescription>
+                  Manage programmatic SEO landing pages
                 </CardDescription>
               </CardHeader>
             </Card>

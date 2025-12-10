@@ -19,6 +19,7 @@ import { leadsRouter } from "./routers/leads";
 import { campaignsRouter } from "./routers/campaigns";
 import { billingRouter } from "./routers/billing";
 import { usageRouter } from "./routers/usage";
+import { pseoRouter } from "./routers/pseo";
 
 export const appRouter = router({
   system: systemRouter,
@@ -208,6 +209,9 @@ export const appRouter = router({
 
   // Usage tracking
   usage: usageRouter,
+
+  // Programmatic SEO
+  pseo: pseoRouter,
 });
 
 export type AppRouter = typeof appRouter;

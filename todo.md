@@ -123,3 +123,25 @@
 - [x] Check campaign limit before creating campaigns
 - [x] Show upgrade modal when limit exceeded
 - [x] Add "View Plans" link in limit warnings
+
+## Phase 8: Programmatic SEO Engine
+
+### pSEO Management
+- [x] Create niche management UI (add/edit/delete niches)
+- [x] Create location management UI (add/edit/delete locations)
+- [x] Build page generation system (niche × location combinations)
+- [x] Implement dynamic content templates with local keywords
+- [x] Create SEO-friendly public routes (/niche-location)
+- [x] Add meta tags (title, description)
+- [x] Implement page regeneration on content updates
+- [ ] Add schema markup (LocalBusiness, Service, BreadcrumbList)
+- [ ] Generate XML sitemap for search engines
+- [ ] Build pSEO analytics dashboard (page views, rankings)
+
+### Content Generation
+- [ ] Create content templates for each niche
+- [ ] Add location-specific content (suburbs, postcodes, landmarks)
+- [ ] Generate unique content for each page (avoid duplicate content)
+- [ ] Add call-to-action sections with lead capture forms
+- [ ] Include testimonials and trust signals
+- [ ] Add internal linking between related pages
