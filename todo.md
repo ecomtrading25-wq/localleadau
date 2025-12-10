@@ -105,3 +105,21 @@
 - [x] Add webhook event logging
 - [ ] Test webhook handlers with Stripe CLI
 - [ ] Configure webhook in Stripe dashboard
+
+## Phase 7: Usage Tracking & Limits Enforcement
+
+### Usage Tracking
+- [x] Create usage tracking functions (count prospects, leads, campaigns)
+- [x] Add monthly usage reset logic based on billing period
+- [x] Build usage dashboard widget with progress bars
+- [x] Implement limit checking before actions
+- [x] Add upgrade prompts when limits exceeded
+- [ ] Create usage history tracking table
+- [ ] Add usage alerts/notifications
+
+### Limit Enforcement
+- [x] Check prospect limit before scraping
+- [x] Check lead limit before converting prospects
+- [x] Check campaign limit before creating campaigns
+- [x] Show upgrade modal when limit exceeded
+- [x] Add "View Plans" link in limit warnings

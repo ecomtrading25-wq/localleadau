@@ -8,6 +8,8 @@ import {
   createCampaignStep,
   getCampaignSteps,
 } from "../db";
+import { TRPCError } from "@trpc/server";
+import { checkUsageLimit } from "../usage";
 
 export const campaignsRouter = router({
   // List all campaigns for an organisation
@@ -55,6 +57,16 @@ export const campaignsRouter = router({
       templateCategory: z.string().optional(),
     }))
     .mutation(async ({ input }) => {
+      // Check campaign limit before creating
+      const limitCheck = await checkUsageLimit(input.organisationId, "campaign", 1);
+      
+      if (!limitCheck.allowed) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: limitCheck.reason || "Campaign limit exceeded. Please upgrade your plan.",
+        });
+      }
+
       const campaignId = await createCampaign({
         organisationId: input.organisationId,
         name: input.name,

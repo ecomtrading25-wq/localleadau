@@ -13,6 +13,8 @@ import {
   createLead,
 } from "../db";
 import { makeRequest } from "../_core/map";
+import { TRPCError } from "@trpc/server";
+import { checkUsageLimit } from "../usage";
 
 export const prospectingRouter = router({
   // Create a new scrape job
@@ -26,6 +28,16 @@ export const prospectingRouter = router({
       niche: z.string().optional(),
     }))
     .mutation(async ({ input }) => {
+      // Check usage limits before creating scrape job
+      const limitCheck = await checkUsageLimit(input.organisationId, "prospect", input.maxResults);
+      
+      if (!limitCheck.allowed) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: limitCheck.reason || "Prospect limit exceeded. Please upgrade your plan.",
+        });
+      }
+
       // Create prospect source
       const sourceId = await createProspectSource({
         organisationId: input.organisationId,
@@ -124,9 +136,22 @@ export const prospectingRouter = router({
       notes: z.string().optional(),
     }))
     .mutation(async ({ input }) => {
+      // Check lead limit before converting
+      const limitCheck = await checkUsageLimit(input.organisationId, "lead", 1);
+      
+      if (!limitCheck.allowed) {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: limitCheck.reason || "Monthly lead limit exceeded. Please upgrade your plan.",
+        });
+      }
+
       const prospect = await getProspectById(input.prospectId);
       if (!prospect) {
-        throw new Error("Prospect not found");
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "Prospect not found",
+        });
       }
 
       // Create lead from prospect

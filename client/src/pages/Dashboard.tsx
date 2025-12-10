@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Skeleton } from "@/components/ui/skeleton";
 import { Users, Target, Mail, DollarSign, TrendingUp, Briefcase, CreditCard } from "lucide-react";
 import { Link } from "wouter";
+import { UsageWidget } from "@/components/UsageWidget";
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -231,6 +232,13 @@ export default function Dashboard() {
             </Card>
           </Link>
         </div>
+
+        {/* Usage Widget */}
+        {selectedOrgId && (
+          <div className="mt-8">
+            <UsageWidget organisationId={selectedOrgId} />
+          </div>
+        )}
 
         {/* Welcome Message for New Users */}
         {stats && stats.totalLeads === 0 && stats.totalProspects === 0 && (

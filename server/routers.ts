@@ -18,6 +18,7 @@ import { prospectingRouter } from "./routers/prospecting";
 import { leadsRouter } from "./routers/leads";
 import { campaignsRouter } from "./routers/campaigns";
 import { billingRouter } from "./routers/billing";
+import { usageRouter } from "./routers/usage";
 
 export const appRouter = router({
   system: systemRouter,
@@ -204,6 +205,9 @@ export const appRouter = router({
 
   // Billing & subscriptions
   billing: billingRouter,
+
+  // Usage tracking
+  usage: usageRouter,
 });
 
 export type AppRouter = typeof appRouter;
