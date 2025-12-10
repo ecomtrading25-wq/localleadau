@@ -37,21 +37,25 @@
 - [x] Create prospect list management UI
 
 ### Campaign Management
+- [x] Create campaign database schema
+- [x] Build campaigns list page
+- [x] Implement campaign creation
+- [x] Add campaign status management (draft/active/paused/completed)
+- [x] Create campaign step model
+- [ ] Build campaign step editor UI
 - [ ] Create campaign template library
-- [ ] Build campaign builder UI
-- [ ] Implement campaign step editor
-- [ ] Create campaign detail page with stats
 - [ ] Implement "Add to campaign" functionality
-- [ ] Add campaign performance metrics
+- [ ] Add campaign automation/scheduling
 
 ### Lead Dashboard
-- [ ] Create main dashboard with KPI cards
-- [ ] Build leads table with filters
-- [ ] Implement lead detail view
-- [ ] Add lead status workflow
-- [ ] Create lead activity timeline
-- [ ] Build lead assignment
-- [ ] Add lead notes and comments
+- [x] Create leads list page
+- [x] Build leads table with filters
+- [x] Implement lead detail sidebar
+- [x] Add lead status workflow (new/contacted/qualified/proposal/won/lost)
+- [x] Create lead activity timeline
+- [x] Add lead notes and interactions
+- [ ] Build lead assignment UI
+- [ ] Implement lead search
 
 ### ROI Calculator
 - [ ] Create shared ROI calculation logic

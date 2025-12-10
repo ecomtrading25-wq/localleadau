@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import Onboarding from "./pages/Onboarding";
 import Dashboard from "./pages/Dashboard";
 import Prospects from "./pages/Prospects";
+import Leads from "./pages/Leads";
+import Campaigns from "./pages/Campaigns";
 import { useAuth } from "./_core/hooks/useAuth";
 import { trpc } from "./lib/trpc";
 import { Loader2 } from "lucide-react";
@@ -84,6 +86,12 @@ function Router() {
       </Route>
       <Route path="/prospects">
         <ProtectedRoute component={Prospects} />
+      </Route>
+      <Route path="/leads">
+        <ProtectedRoute component={Leads} />
+      </Route>
+      <Route path="/campaigns">
+        <ProtectedRoute component={Campaigns} />
       </Route>
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}

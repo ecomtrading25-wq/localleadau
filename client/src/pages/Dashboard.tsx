@@ -189,29 +189,33 @@ export default function Dashboard() {
             </Card>
           </Link>
 
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-            <CardHeader>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-5 w-5 text-primary" />
-                <CardTitle className="text-lg">Create Campaign</CardTitle>
-              </div>
-              <CardDescription>
-                Build email/SMS sequences to engage your prospects
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <Link href="/leads">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <div className="flex items-center space-x-2">
+                  <Users className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-lg">Manage Leads</CardTitle>
+                </div>
+                <CardDescription>
+                  View and update your lead pipeline
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
 
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-            <CardHeader>
-              <div className="flex items-center space-x-2">
-                <Briefcase className="h-5 w-5 text-primary" />
-                <CardTitle className="text-lg">View Leads</CardTitle>
-              </div>
-              <CardDescription>
-                Manage your pipeline and track lead progress
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <Link href="/campaigns">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-5 w-5 text-primary" />
+                  <CardTitle className="text-lg">Create Campaign</CardTitle>
+                </div>
+                <CardDescription>
+                  Set up automated email/SMS sequences
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
         </div>
 
         {/* Welcome Message for New Users */}
